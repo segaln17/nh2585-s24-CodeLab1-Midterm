@@ -1,5 +1,5 @@
-# FILL IN INFO ABOUT YOUR GAME HERE. 
+# You are an ant. Can you escape the ant farm?
 
-DO NOT LEAVE IT LIKE THIS!!!
+WASD controls, get as many crumbs as you can before time runs out!
 
-Please? Please, give me content. I'm begging you. It's not that hard. Thanks.
+WASD controls not implemented yet
