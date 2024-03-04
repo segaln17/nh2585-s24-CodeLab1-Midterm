@@ -97,6 +97,15 @@ public class ASCIILevelLoader : MonoBehaviour
                         newObject = Instantiate(Resources.Load<GameObject>("Prefabs/Wall"));
                         break;
                     
+                    //load in the player:
+                    case 'P':
+                        newObject = Instantiate(Resources.Load<GameObject>("Prefabs/Player"));
+                        break;
+                    
+                    //if an exit:
+                    case 'E':
+                        newObject = Instantiate(Resources.Load<GameObject>("Prefabs/Exit"));
+                        break;
                 }
 
                 if (newObject != null)
