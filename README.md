@@ -2,4 +2,4 @@
 
 WASD controls, get as many crumbs as you can before time runs out!
 
-Crumbs and timer not yet implemented
+Now with high scores!
