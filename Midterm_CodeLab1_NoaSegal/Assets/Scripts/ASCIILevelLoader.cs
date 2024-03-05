@@ -106,6 +106,11 @@ public class ASCIILevelLoader : MonoBehaviour
                     case 'E':
                         newObject = Instantiate(Resources.Load<GameObject>("Prefabs/Exit"));
                         break;
+                    
+                    //if a crumb:
+                    case 'C':
+                        newObject = Instantiate(Resources.Load<GameObject>("Prefabs/Crumb"));
+                        break;
                 }
 
                 if (newObject != null)
