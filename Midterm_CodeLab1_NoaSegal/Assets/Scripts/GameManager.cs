@@ -45,13 +45,12 @@ public class GameManager : MonoBehaviour
     public float timeLeft = 3f;
     
     //check if out of levels:
-    bool isInGame = true;
-    
-    //TODO: implement checking to see if went through all the levels, and if yes, go to end screen//
-    //if currentLevel is > whatever the last level number is, go to end screen
+    public bool isInGame = true;
+    //public so I can access it in WinScript
     
     //empty string where scores will go in the text file:
-    private string highScoresString = "";
+    public string highScoresString = "";
+    //made it public so I can access it in WinScript
     
     //create list of high scores:
     List<int> highScores;
@@ -124,15 +123,27 @@ public class GameManager : MonoBehaviour
     {
        if (isInGame)
        {
+           //if still playing, update the text with the score and countdown timer until game is over
            displayText.text = "Score: " + score + "\nTimer: " + ((int)timeLeft);
        }
+       
        else
        {
-           displayText.text = "GAME OVER \nFinal Score: " + score + "\nHigh Scores: \n" + highScoresString;
+           //if the last level is completed, change the displayText to reflect the victory:
+           if (ASCIILevelLoader.Instance.currentLevel >= 4)
+           {
+               displayText.text = "YOU WIN! \nFinal score: " + score + "\nHigh scores: \n" + highScoresString;
+           }
+           else
+           {
+               displayText.text = "GAME OVER \nFinal score: " + score + "\nHigh scores: \n" + highScoresString;
+           }
+           
        }
        
        //update timer:
        timeLeft -= Time.deltaTime;
+       
        
        //if time is up, go to end screen:
        if (timeLeft <= 0 && isInGame)
@@ -161,7 +172,8 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    void SetHighScore()
+    //public so I can access it in WinScript
+    public void SetHighScore()
     {
         //check if the current score is a high score, and put it in the list:
         if (isHighScore(score))

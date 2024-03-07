@@ -5,13 +5,14 @@ using UnityEngine;
 using UnityEngine.Windows;
 using System.IO;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 using File = System.IO.File;
 
 public class ASCIILevelLoader : MonoBehaviour
 {
     public static ASCIILevelLoader Instance; //singleton
     private GameObject level;
-    int currentLevel = 0;
+    public int currentLevel = 0;
 
     //property to change levels:
     public int CurrentLevel
@@ -51,6 +52,8 @@ public class ASCIILevelLoader : MonoBehaviour
         FILE_PATH = Application.dataPath + "/Levels/LevelNum.txt";
         //Load in the level:
         LoadLevel();
+        
+        
     }
 
     // Update is called once per frame
@@ -110,6 +113,16 @@ public class ASCIILevelLoader : MonoBehaviour
                     //if a crumb:
                     case 'C':
                         newObject = Instantiate(Resources.Load<GameObject>("Prefabs/Crumb"));
+                        break;
+                    
+                    //if final exit:
+                    case 'F':
+                        newObject = Instantiate(Resources.Load<GameObject>("Prefabs/FinalCube"));
+                        break;
+                    
+                    //if a spike:
+                    case 'S':
+                        newObject = Instantiate(Resources.Load<GameObject>("Prefabs/Spike"));
                         break;
                 }
 
