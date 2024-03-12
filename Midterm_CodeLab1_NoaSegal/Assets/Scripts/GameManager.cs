@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     //set up scene manager:
     //timer:
     public float timeLeft = 3f;
+    public float timeToPlay = 3f;
     
     //check if out of levels:
     public bool isInGame = true;
@@ -123,6 +124,11 @@ public class GameManager : MonoBehaviour
     {
        if (isInGame)
        {
+           GameObject LevelObjects = GameObject.Find("Level Objects");
+           if (LevelObjects == null)
+           {
+               DelayedLoad();
+           }
            //if still playing, update the text with the score and countdown timer until game is over
            displayText.text = "Score: " + score + "\nTimer: " + ((int)timeLeft);
        }
@@ -219,4 +225,26 @@ public class GameManager : MonoBehaviour
             File.WriteAllText(FILE_FULL_PATH, highScoresString);
         }
     }
+
+    public void ResetTime()
+    {
+        timeLeft = timeToPlay;
+    }
+
+    public void DelayedLoad()
+    {
+        ASCIILevelLoader.Instance.currentLevel = 0;
+        ASCIILevelLoader.Instance.LoadLevel();
+        GameObject.Find("Canvas").SetActive(true);
+        ResetTime();
+    }
+
+    
+    public void ResetLevel()
+    {
+        //Invoke("DelayedLoad", 0.5f);
+        isInGame = true; //eventually put this into reset function
+        
+    }
+    
 }

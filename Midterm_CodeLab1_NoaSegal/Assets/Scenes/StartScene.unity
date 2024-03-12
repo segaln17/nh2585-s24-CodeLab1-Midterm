@@ -438,6 +438,10 @@ PrefabInstance:
       propertyPath: timeLeft
       value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 1881944672064144255, guid: 89a14669f5e3ea24b98a3d744d88870f, type: 3}
+      propertyPath: timeToPlay
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 2429423339334378552, guid: 89a14669f5e3ea24b98a3d744d88870f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

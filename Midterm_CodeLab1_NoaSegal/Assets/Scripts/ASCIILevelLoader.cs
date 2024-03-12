@@ -62,13 +62,15 @@ public class ASCIILevelLoader : MonoBehaviour
         
     }
 
-    void LoadLevel()
+    public void LoadLevel()
     {
+        Debug.Log("Level loaded");
         //destroy the previous:
         Destroy(level);
         
         //create a new gameObject to hold everything in the level:
         level = new GameObject("Level Objects");
+        new GameObject("debugObject");
         
         //create an array of strings to contain the contents of the file
         //and replace "Num" with the current level
@@ -77,7 +79,7 @@ public class ASCIILevelLoader : MonoBehaviour
         //loop through the array of strings:
         for (int yLevelPos = 0; yLevelPos < lines.Length; yLevelPos++)
         {
-            Debug.Log(lines[0]);
+            //Debug.Log(lines[0]);
             
             //get a single line:
             string line = lines[yLevelPos].ToUpper(); //makes them uppercase

@@ -1,13 +1,32 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WASDScript : MonoBehaviour
 {
+    //public static WASDScript instance;
+        
     Rigidbody rb;
     
     //declare and initialize forceAmount:
     public float forceAmt = 5f;
+
+    /*
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    */
+
     // Start is called before the first frame update
     void Start()
     {

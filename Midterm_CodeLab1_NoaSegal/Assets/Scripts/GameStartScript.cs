@@ -20,5 +20,9 @@ public class GameStartScript : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("Scenes/StartScene");
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.ResetLevel();
+        }
     }
 }
