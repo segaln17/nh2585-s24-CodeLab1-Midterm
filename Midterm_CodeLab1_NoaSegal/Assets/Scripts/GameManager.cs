@@ -244,6 +244,7 @@ public class GameManager : MonoBehaviour
     {
         //Invoke("DelayedLoad", 0.5f);
         isInGame = true; //eventually put this into reset function
+        score = 0;
         
     }
     
